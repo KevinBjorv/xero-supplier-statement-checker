@@ -1,9 +1,10 @@
 # Distribution record
 
 Publication material for the n8n template library, n8n Community, Bjorvand.ai,
-LinkedIn, DEV and Product Hunt. Xero App Store listing is tracked separately
-because it requires certification and a qualifying plan. Prepared copy is not
-evidence of submission or platform approval.
+LinkedIn, DEV, Product Hunt and the additional directories and communities below.
+Xero App Store listing is tracked separately because it requires certification
+and a qualifying plan. Prepared copy is not evidence of submission or platform
+approval.
 
 The tool is a preview. Synthetic tests, self-hosted n8n and optional synthetic
 OpenAI extraction have been exercised. Live Xero and n8n Cloud acceptance remain
@@ -19,6 +20,9 @@ Norwegian destination:
 
 Use `utm_campaign=xero_statement_checker`, the platform as `utm_source`, and a
 specific `utm_medium` (`template`, `community`, `social`, `article`, `directory`).
+Exception: AlternativeTo requires a clean official website URL without UTM tags.
+Technical communities may require a direct GitHub link and prohibit a commercial
+CTA; follow the destination's actual publishing rules.
 The landing page owns the free download, sample report, limitations and
 implementation booking. Do not require an email address to try the synthetic
 example. Do not publish a campaign link until its destination returns the actual
@@ -38,6 +42,16 @@ results only. No visits, bookings or sales are claimed in this record.
 | LinkedIn | Content prepared; login required | Verify the posting identity before publishing the project post. |
 | DEV | Published 16 September 2026 | [Live tutorial](https://dev.to/kevinbjorv/checking-xero-supplier-statements-with-n8n-and-deterministic-typescript-29h); author Kevin Bjorvand, four relevant tags, illustration, AI disclosure and tracked website CTA verified. |
 | Product Hunt | Submitted; scheduled for 17 September 2026 | [Listing preview](https://www.producthunt.com/products/xero-supplier-statement-checker?launch=xero-supplier-statement-checker). Platform confirmed launch at 00:01 PDT / 09:01 CEST. Icon, three gallery images, maker comment, free pricing and tracked website link verified; launch is not yet live. |
+| Reddit r/n8n | Published 16 September 2026 | [Workflow post](https://www.reddit.com/r/n8n/comments/1wi42z4/supplier_statement_checker_n8n_forms/) verified on its resulting page. Required GitHub flair, code link, synthetic output, affiliation and AI-assistance disclosures included. No commercial CTA. |
+| SaaSHub | Copy prepared; login opened | Product submission requires account access; not submitted. |
+| SourceForge | Copy prepared; login opened | Create an open-source checker project; do not redistribute n8n as MIT. Not submitted. |
+| AlternativeTo | Copy prepared; login opened | Email verification and administrator review required; use a clean website URL. Not submitted. |
+| Hashnode | Republish plan prepared; login opened | Existing DEV tutorial is the canonical original; use a Hashnode-attributed website CTA. Not published. |
+| AccountingWEB | Editorial angle prepared; login opened | Commercial publication requires appropriate partner/editorial access; no paid placement or partnership outreach authorized. Not submitted. |
+| Indie Hackers | Product copy prepared; login opened | Verify identity and create product profile/update; no invented traction. Not submitted. |
+| Peerlist | Project copy prepared; login opened | Profile project first; verified individual profile and Monday availability govern Launchpad. Not submitted. |
+| OpenAlternative | Copy prepared; login opened | Conditional directory fit; verify any required comparable proprietary product. Not submitted. |
+| Hacker News | Show HN copy prepared; login opened | Primary link is the runnable public repository and credential-free demo. Not submitted. |
 | Xero App Store | Not eligible for submission yet | Certification, qualifying plan, approved onboarding and live integration evidence pending. |
 
 ## Content and assets
@@ -47,6 +61,7 @@ results only. No visits, bookings or sales are claimed in this record.
 - [LinkedIn post](linkedin.md)
 - [DEV tutorial](dev-article.md)
 - [Product Hunt listing](product-hunt.md)
+- [Additional platform submission pack](additional-platforms.md)
 - [Xero App Store preparation](xero-app-store.md)
 - Images: `docs/assets/repository-cover.jpg`, `docs/assets/report-preview.svg`.
 - Platform-sized gallery images and icon: `docs/publication/assets/`.
