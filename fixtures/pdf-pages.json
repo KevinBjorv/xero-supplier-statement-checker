@@ -1,0 +1,7 @@
+{
+  "numpages": 2,
+  "text": [
+    "Supplier statement\nExample Office Supplies Ltd - SYNTHETIC DATA ONLY\nStatement date: 2026-08-31 | Currency: GBP\nOriginal invoice total includes VAT. Outstanding is a separate balance.\nReference\nInvoice date\nOriginal total\nOutstanding\nINV-100\n2026-08-01\n120.00\n120.00\nINV-101\n2026-08-02\n250.00\n250.00\nINV-102\n2026-08-03\n80.00\n80.00\nPage 1 of 2 - fictional demonstration, no customer data\n",
+    "Supplier statement\nExample Office Supplies Ltd - SYNTHETIC DATA ONLY\nStatement date: 2026-08-31 | Currency: GBP\nOriginal invoice total includes VAT. Outstanding is a separate balance.\nReference\nInvoice date\nOriginal total\nOutstanding\nINV-103\n2026-08-04\n65.00\n0.00\nINV-104\n2026-08-05\n200.00\n100.00\nCR-105\n2026-08-06\n-20.00\n-20.00\nCR-105 is a credit note. Review required; do not match it as an invoice.\nPage 2 of 2 - fictional demonstration, no customer data\n"
+  ]
+}

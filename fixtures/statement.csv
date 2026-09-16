@@ -1,0 +1,11 @@
+reference,date,currency,original_total,outstanding,kind,amount_meaning
+INV-100,2026-08-01,GBP,120.00,120.00,invoice,tax_inclusive_original
+INV-101,2026-08-02,GBP,250.00,250.00,invoice,tax_inclusive_original
+INV-102,2026-08-03,GBP,80.00,80.00,invoice,tax_inclusive_original
+INV-103,2026-08-04,GBP,65.00,0.00,invoice,tax_inclusive_original
+INV-104,2026-08-05,GBP,200.00,100.00,invoice,tax_inclusive_original
+CR-105,2026-08-06,GBP,-20.00,-20.00,credit,tax_inclusive_original
+INV-106,2026-08-07,GBP,30.00,30.00,invoice,tax_inclusive_original
+INV-106,2026-08-07,GBP,30.00,30.00,invoice,tax_inclusive_original
+INV-107,2026-08-08,GBP,,45.00,invoice,unknown
+INV-108,2026-08-09,GBP,99.00,99.00,invoice,tax_inclusive_original

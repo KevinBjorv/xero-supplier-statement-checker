@@ -1,0 +1,5 @@
+{
+  "workflows/synthetic-demo.json": "db1c4c0ce80fed76300729c4b5398ba99d96318c3d04243559d037771c27e746",
+  "workflows/xero-supplier-statement-checker.json": "2b69fee05b43110e1c789474dd45c6b33e474cb36649a4dfe795026372759b2c",
+  "workflows/fixture-verification.json": "c0cf00c3a34b64892f5578302308eb78ce5446f999a131cab8953ab76a86fb77"
+}

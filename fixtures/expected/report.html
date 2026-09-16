@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><title>Supplier statement check — Example Office Supplies Ltd (synthetic)</title><style>body{font:16px/1.55 system-ui,sans-serif;color:#192026;background:#f8f6f0;margin:0}main{max-width:1150px;margin:auto;padding:40px 24px}h1{font-size:clamp(28px,5vw,44px);line-height:1.12}h2{margin-top:32px}a{color:#174776;overflow-wrap:anywhere}article{background:white;border:1px solid #d5d4ce;margin:20px 0;padding:22px;border-left:5px solid #c96a26}article.matched{border-left-color:#347456}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}dt{font-weight:600}dd{margin:0 0 12px;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}small{color:#50565b}table{border-collapse:collapse;width:100%}td,th{padding:8px;text-align:left;border-bottom:1px solid #ddd}footer{margin-top:40px;font-size:13px}@media print{body{background:white}article{break-inside:avoid}main{padding:0}}</style></head><body><main><small>BJORVAND AI · READ-ONLY CHECK</small><h1>Supplier statement exceptions</h1><h2>Check completed</h2><p>Example Office Supplies Ltd (synthetic) · GBP · statement 2026-08-31</p><ul><li>Matched: 2</li><li>Amount difference: 1</li><li>Not found in retrieved Xero data: 1</li><li>Review required: 6</li></ul><p>Download the ZIP to read every source row and its evidence. This is not a supplier balance reconciliation.</p><dl class="grid"><div><dt>Run</dt><dd>synthetic-example-001</dd></div><div><dt>Xero retrieval interval</dt><dd>2026-09-16T08:00:10.000Z – 2026-09-16T08:01:00.000Z</dd></div><div><dt>Original file SHA-256</dt><dd>f95733ded1f68bf1fb2c880a5430a361c9cedd5236bb46ea741f4cb1e2af6e59</dd></div></dl><p>Current Xero data was retrieved during the recorded interval; it is not a historical or atomic snapshot at the statement date.</p><p>This checks statement lines against bills, not supplier balances or payments. Exceptions do not establish debts, missing documents or accounting errors.</p><h2>Every statement line (10)</h2><article class="matched"><h3>INV-100 — Matched</h3><p>statement.csv · row 2</p><dl class="grid"><div><dt>Statement original</dt><dd>120.00 GBP</dd><dt>Statement outstanding</dt><dd>120.00</dd></div><div><dt>Compared original totals</dt><dd>120.00 versus 120.00; difference 0.00</dd><dt>Amount meaning</dt><dd>tax_inclusive_original</dd></div></dl><p>Xero bill: <a href="https://go.xero.com/AccountsPayable/View.aspx?InvoiceID=00000000-0000-4000-8000-000000000001" rel="noreferrer">00000000-0000-4000-8000-000000000001</a> · AUTHORISED · original 120.00 · outstanding 120.00</p><p><strong>Reason:</strong> ORIGINAL_TOTALS_AGREE</p><p><strong>Review action:</strong> Original totals agree. This is not a payment or balance reconciliation.</p><details><summary>Original document values</summary><pre>{
+  &quot;reference&quot;: &quot;INV-100&quot;,
+  &quot;date&quot;: &quot;2026-08-01&quot;,
+  &quot;currency&quot;: &quot;GBP&quot;,
+  &quot;original_total&quot;: &quot;120.00&quot;,
+  &quot;outstanding&quot;: &quot;120.00&quot;,
+  &quot;kind&quot;: &quot;invoice&quot;,
+  &quot;amount_meaning&quot;: &quot;tax_inclusive_original&quot;
+}</pre></details></article><article class="amount_difference"><h3>INV-101 — Amount difference</h3><p>statement.csv · row 3</p><dl class="grid"><div><dt>Statement original</dt><dd>250.00 GBP</dd><dt>Statement outstanding</dt><dd>250.00</dd></div><div><dt>Compared original totals</dt><dd>250.00 versus 245.00; difference 5.00</dd><dt>Amount meaning</dt><dd>tax_inclusive_original</dd></div></dl><p>Xero bill: <a href="https://go.xero.com/AccountsPayable/View.aspx?InvoiceID=00000000-0000-4000-8000-000000000002" rel="noreferrer">00000000-0000-4000-8000-000000000002</a> · AUTHORISED · original 245.00 · outstanding 245.00</p><p><strong>Reason:</strong> ORIGINAL_TOTALS_DIFFER</p><p><strong>Review action:</strong> Review the original invoice and both original totals; do not assume the cause of the difference.</p><details><summary>Original document values</summary><pre>{
+  &quot;reference&quot;: &quot;INV-101&quot;,
+  &quot;date&quot;: &quot;2026-08-02&quot;,
+  &quot;currency&quot;: &quot;GBP&quot;,
+  &quot;original_total&quot;: &quot;250.00&quot;,
+  &quot;outstanding&quot;: &quot;250.00&quot;,
+  &quot;kind&quot;: &quot;invoice&quot;,
+  &quot;amount_meaning&quot;: &quot;tax_inclusive_original&quot;
+}</pre></details></article><article class="not_found"><h3>INV-102 — Not found in retrieved Xero data</h3><p>statement.csv · row 4</p><dl class="grid"><div><dt>Statement original</dt><dd>80.00 GBP</dd><dt>Statement outstanding</dt><dd>80.00</dd></div><div><dt>Compared original totals</dt><dd>No safe original-total comparison</dd><dt>Amount meaning</dt><dd>tax_inclusive_original</dd></div></dl><p><strong>Reason:</strong> NO_REFERENCE_IN_COMPLETE_RETRIEVAL</p><p><strong>Review action:</strong> Check the reference and supplier records. Absence does not establish a missing document, unpaid debt or accounting error.</p><details><summary>Original document values</summary><pre>{
+  &quot;reference&quot;: &quot;INV-102&quot;,
+  &quot;date&quot;: &quot;2026-08-03&quot;,
+  &quot;currency&quot;: &quot;GBP&quot;,
+  &quot;original_total&quot;: &quot;80.00&quot;,
+  &quot;outstanding&quot;: &quot;80.00&quot;,
+  &quot;kind&quot;: &quot;invoice&quot;,
+  &quot;amount_meaning&quot;: &quot;tax_inclusive_original&quot;
+}</pre></details></article><article class="matched"><h3>INV-103 — Matched</h3><p>statement.csv · row 5</p><dl class="grid"><div><dt>Statement original</dt><dd>65.00 GBP</dd><dt>Statement outstanding</dt><dd>0.00</dd></div><div><dt>Compared original totals</dt><dd>65.00 versus 65.00; difference 0.00</dd><dt>Amount meaning</dt><dd>tax_inclusive_original</dd></div></dl><p>Xero bill: <a href="https://go.xero.com/AccountsPayable/View.aspx?InvoiceID=00000000-0000-4000-8000-000000000003" rel="noreferrer">00000000-0000-4000-8000-000000000003</a> · PAID · original 65.00 · outstanding 0.00</p><p><strong>Reason:</strong> ORIGINAL_TOTALS_AGREE</p><p><strong>Review action:</strong> Original totals agree. This is not a payment or balance reconciliation.</p><details><summary>Original document values</summary><pre>{
+  &quot;reference&quot;: &quot;INV-103&quot;,
+  &quot;date&quot;: &quot;2026-08-04&quot;,
+  &quot;currency&quot;: &quot;GBP&quot;,
+  &quot;original_total&quot;: &quot;65.00&quot;,
+  &quot;outstanding&quot;: &quot;0.00&quot;,
+  &quot;kind&quot;: &quot;invoice&quot;,
+  &quot;amount_meaning&quot;: &quot;tax_inclusive_original&quot;
+}</pre></details></article><article class="review_required"><h3>INV-104 — Review required</h3><p>statement.csv · row 6</p><dl class="grid"><div><dt>Statement original</dt><dd>200.00 GBP</dd><dt>Statement outstanding</dt><dd>100.00</dd></div><div><dt>Compared original totals</dt><dd>200.00 versus 200.00; difference 0.00</dd><dt>Amount meaning</dt><dd>tax_inclusive_original</dd></div></dl><p>Xero bill: <a href="https://go.xero.com/AccountsPayable/View.aspx?InvoiceID=00000000-0000-4000-8000-000000000004" rel="noreferrer">00000000-0000-4000-8000-000000000004</a> · AUTHORISED · original 200.00 · outstanding 100.00</p><p><strong>Reason:</strong> PARTIAL_PAYMENT_ON_STATEMENT; PARTIAL_PAYMENT_IN_XERO</p><p><strong>Review action:</strong> Review the source row and any Xero candidates. Confirm reference, amount meaning, currency and payment/credit context.</p><details><summary>Original document values</summary><pre>{
+  &quot;reference&quot;: &quot;INV-104&quot;,
+  &quot;date&quot;: &quot;2026-08-05&quot;,
+  &quot;currency&quot;: &quot;GBP&quot;,
+  &quot;original_total&quot;: &quot;200.00&quot;,
+  &quot;outstanding&quot;: &quot;100.00&quot;,
+  &quot;kind&quot;: &quot;invoice&quot;,
+  &quot;amount_meaning&quot;: &quot;tax_inclusive_original&quot;
+}</pre></details></article><article class="review_required"><h3>CR-105 — Review required</h3><p>statement.csv · row 7</p><dl class="grid"><div><dt>Statement original</dt><dd>-20.00 GBP</dd><dt>Statement outstanding</dt><dd>-20.00</dd></div><div><dt>Compared original totals</dt><dd>No safe original-total comparison</dd><dt>Amount meaning</dt><dd>tax_inclusive_original</dd></div></dl><p><strong>Reason:</strong> UNSUPPORTED_LINE_TYPE; NEGATIVE_AMOUNT</p><p><strong>Review action:</strong> Review the source row and any Xero candidates. Confirm reference, amount meaning, currency and payment/credit context.</p><details><summary>Original document values</summary><pre>{
+  &quot;reference&quot;: &quot;CR-105&quot;,
+  &quot;date&quot;: &quot;2026-08-06&quot;,
+  &quot;currency&quot;: &quot;GBP&quot;,
+  &quot;original_total&quot;: &quot;-20.00&quot;,
+  &quot;outstanding&quot;: &quot;-20.00&quot;,
+  &quot;kind&quot;: &quot;credit&quot;,
+  &quot;amount_meaning&quot;: &quot;tax_inclusive_original&quot;
+}</pre></details></article><article class="review_required"><h3>INV-106 — Review required</h3><p>statement.csv · row 8</p><dl class="grid"><div><dt>Statement original</dt><dd>30.00 GBP</dd><dt>Statement outstanding</dt><dd>30.00</dd></div><div><dt>Compared original totals</dt><dd>30.00 versus 30.00; difference 0.00</dd><dt>Amount meaning</dt><dd>tax_inclusive_original</dd></div></dl><p>Xero bill: <a href="https://go.xero.com/AccountsPayable/View.aspx?InvoiceID=00000000-0000-4000-8000-000000000005" rel="noreferrer">00000000-0000-4000-8000-000000000005</a> · AUTHORISED · original 30.00 · outstanding 30.00</p><p><strong>Reason:</strong> DUPLICATE_STATEMENT_REFERENCE</p><p><strong>Review action:</strong> Review the source row and any Xero candidates. Confirm reference, amount meaning, currency and payment/credit context.</p><details><summary>Original document values</summary><pre>{
+  &quot;reference&quot;: &quot;INV-106&quot;,
+  &quot;date&quot;: &quot;2026-08-07&quot;,
+  &quot;currency&quot;: &quot;GBP&quot;,
+  &quot;original_total&quot;: &quot;30.00&quot;,
+  &quot;outstanding&quot;: &quot;30.00&quot;,
+  &quot;kind&quot;: &quot;invoice&quot;,
+  &quot;amount_meaning&quot;: &quot;tax_inclusive_original&quot;
+}</pre></details></article><article class="review_required"><h3>INV-106 — Review required</h3><p>statement.csv · row 9</p><dl class="grid"><div><dt>Statement original</dt><dd>30.00 GBP</dd><dt>Statement outstanding</dt><dd>30.00</dd></div><div><dt>Compared original totals</dt><dd>30.00 versus 30.00; difference 0.00</dd><dt>Amount meaning</dt><dd>tax_inclusive_original</dd></div></dl><p>Xero bill: <a href="https://go.xero.com/AccountsPayable/View.aspx?InvoiceID=00000000-0000-4000-8000-000000000005" rel="noreferrer">00000000-0000-4000-8000-000000000005</a> · AUTHORISED · original 30.00 · outstanding 30.00</p><p><strong>Reason:</strong> DUPLICATE_STATEMENT_REFERENCE</p><p><strong>Review action:</strong> Review the source row and any Xero candidates. Confirm reference, amount meaning, currency and payment/credit context.</p><details><summary>Original document values</summary><pre>{
+  &quot;reference&quot;: &quot;INV-106&quot;,
+  &quot;date&quot;: &quot;2026-08-07&quot;,
+  &quot;currency&quot;: &quot;GBP&quot;,
+  &quot;original_total&quot;: &quot;30.00&quot;,
+  &quot;outstanding&quot;: &quot;30.00&quot;,
+  &quot;kind&quot;: &quot;invoice&quot;,
+  &quot;amount_meaning&quot;: &quot;tax_inclusive_original&quot;
+}</pre></details></article><article class="review_required"><h3>INV-107 — Review required</h3><p>statement.csv · row 10</p><dl class="grid"><div><dt>Statement original</dt><dd>Not provided GBP</dd><dt>Statement outstanding</dt><dd>45.00</dd></div><div><dt>Compared original totals</dt><dd>No safe original-total comparison</dd><dt>Amount meaning</dt><dd>unknown</dd></div></dl><p>Xero bill: <a href="https://go.xero.com/AccountsPayable/View.aspx?InvoiceID=00000000-0000-4000-8000-000000000006" rel="noreferrer">00000000-0000-4000-8000-000000000006</a> · AUTHORISED · original 60.00 · outstanding 60.00</p><p><strong>Reason:</strong> UNCONFIRMED_AMOUNT_MEANING; NO_ORIGINAL_TOTAL</p><p><strong>Review action:</strong> Review the source row and any Xero candidates. Confirm reference, amount meaning, currency and payment/credit context.</p><details><summary>Original document values</summary><pre>{
+  &quot;reference&quot;: &quot;INV-107&quot;,
+  &quot;date&quot;: &quot;2026-08-08&quot;,
+  &quot;currency&quot;: &quot;GBP&quot;,
+  &quot;original_total&quot;: &quot;&quot;,
+  &quot;outstanding&quot;: &quot;45.00&quot;,
+  &quot;kind&quot;: &quot;invoice&quot;,
+  &quot;amount_meaning&quot;: &quot;unknown&quot;
+}</pre></details></article><article class="review_required"><h3>INV-108 — Review required</h3><p>statement.csv · row 11</p><dl class="grid"><div><dt>Statement original</dt><dd>99.00 GBP</dd><dt>Statement outstanding</dt><dd>99.00</dd></div><div><dt>Compared original totals</dt><dd>No safe original-total comparison</dd><dt>Amount meaning</dt><dd>tax_inclusive_original</dd></div></dl><p>Xero bill: <a href="https://go.xero.com/AccountsPayable/View.aspx?InvoiceID=00000000-0000-4000-8000-000000000007" rel="noreferrer">00000000-0000-4000-8000-000000000007</a> · AUTHORISED · original 99.00 · outstanding 99.00</p><p>Xero bill: <a href="https://go.xero.com/AccountsPayable/View.aspx?InvoiceID=00000000-0000-4000-8000-000000000008" rel="noreferrer">00000000-0000-4000-8000-000000000008</a> · AUTHORISED · original 99.00 · outstanding 99.00</p><p><strong>Reason:</strong> MULTIPLE_XERO_CANDIDATES</p><p><strong>Review action:</strong> Review the source row and any Xero candidates. Confirm reference, amount meaning, currency and payment/credit context.</p><details><summary>Original document values</summary><pre>{
+  &quot;reference&quot;: &quot;INV-108&quot;,
+  &quot;date&quot;: &quot;2026-08-09&quot;,
+  &quot;currency&quot;: &quot;GBP&quot;,
+  &quot;original_total&quot;: &quot;99.00&quot;,
+  &quot;outstanding&quot;: &quot;99.00&quot;,
+  &quot;kind&quot;: &quot;invoice&quot;,
+  &quot;amount_meaning&quot;: &quot;tax_inclusive_original&quot;
+}</pre></details></article><footer>Tool 0.1.0 · schema 1.0. No entries were posted and no emails were sent.</footer></main></body></html>

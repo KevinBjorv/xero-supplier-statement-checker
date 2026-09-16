@@ -1,0 +1,16 @@
+{
+  "status": "completed",
+  "output": [
+    {
+      "type": "message",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"warnings\":[],\"lines\":[{\"kind\":\"invoice\",\"reference\":\"INV-100\",\"date\":\"2026-08-01\",\"currency\":\"GBP\",\"original_total\":\"120.00\",\"outstanding\":\"120.00\",\"amount_meaning\":\"tax_inclusive_original\",\"excerpt\":\"INV-100 2026-08-01 120.00 120.00\",\"reference_evidence\":\"INV-100\",\"date_evidence\":\"2026-08-01\",\"original_evidence\":\"120.00\",\"outstanding_evidence\":\"120.00\",\"amount_label_evidence\":\"Original invoice total includes VAT. Outstanding is a separate balance.\",\"issues\":[]},{\"kind\":\"invoice\",\"reference\":\"INV-101\",\"date\":\"2026-08-02\",\"currency\":\"GBP\",\"original_total\":\"250.00\",\"outstanding\":\"250.00\",\"amount_meaning\":\"tax_inclusive_original\",\"excerpt\":\"INV-101 2026-08-02 250.00 250.00\",\"reference_evidence\":\"INV-101\",\"date_evidence\":\"2026-08-02\",\"original_evidence\":\"250.00\",\"outstanding_evidence\":\"250.00\",\"amount_label_evidence\":\"Original invoice total includes VAT. Outstanding is a separate balance.\",\"issues\":[]},{\"kind\":\"invoice\",\"reference\":\"INV-102\",\"date\":\"2026-08-03\",\"currency\":\"GBP\",\"original_total\":\"80.00\",\"outstanding\":\"80.00\",\"amount_meaning\":\"tax_inclusive_original\",\"excerpt\":\"INV-102 2026-08-03 80.00 80.00\",\"reference_evidence\":\"INV-102\",\"date_evidence\":\"2026-08-03\",\"original_evidence\":\"80.00\",\"outstanding_evidence\":\"80.00\",\"amount_label_evidence\":\"Original invoice total includes VAT. Outstanding is a separate balance.\",\"issues\":[]}]}"
+        }
+      ]
+    }
+  ]
+}

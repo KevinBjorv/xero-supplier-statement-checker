@@ -1,0 +1,11 @@
+import { mkdir, writeFile } from 'node:fs/promises';
+import { context, statement, retrieval, expectedCounts, apiPages } from '../fixtures/fixture.ts';
+import { checkStatement, reportFiles } from '../src/index.ts';
+import assert from 'node:assert/strict';
+const report = checkStatement(context, statement, retrieval);
+assert.equal(report.status, 'completed'); assert.deepEqual(report.counts, expectedCounts);
+const output = process.argv.includes('--golden') ? 'fixtures/expected' : 'output/demo';
+await mkdir(output, { recursive: true });
+for (const [name,content] of Object.entries(reportFiles(report))) await writeFile(`${output}/${name}`, content, 'utf8');
+if (process.argv.includes('--golden')) for (const [index,page] of apiPages.entries()) await writeFile(`fixtures/xero-page-${index+1}.json`,page+'\n');
+console.log(JSON.stringify({ status: report.status, counts: report.counts, output }));

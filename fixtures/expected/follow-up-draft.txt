@@ -1,0 +1,16 @@
+UNSENT DRAFT — review before use
+
+Subject: Review of supplier statement dated 2026-08-31
+
+We compared the statement for Example Office Supplies Ltd (synthetic) with Xero data retrieved on 2026-09-16T08:01:00.000Z.
+
+- INV-101 (statement.csv · row 3): Amount difference. Statement original total 250.00; Xero original total 245.00 GBP. Review the original invoice and both original totals; do not assume the cause of the difference.
+- INV-102 (statement.csv · row 4): Not found in retrieved Xero data. Check the reference and supplier records. Absence does not establish a missing document, unpaid debt or accounting error.
+- INV-104 (statement.csv · row 6): Review required. Statement original total 200.00; Xero original total 200.00 GBP. Review the source row and any Xero candidates. Confirm reference, amount meaning, currency and payment/credit context.
+- CR-105 (statement.csv · row 7): Review required. Review the source row and any Xero candidates. Confirm reference, amount meaning, currency and payment/credit context.
+- INV-106 (statement.csv · row 8): Review required. Statement original total 30.00; Xero original total 30.00 GBP. Review the source row and any Xero candidates. Confirm reference, amount meaning, currency and payment/credit context.
+- INV-106 (statement.csv · row 9): Review required. Statement original total 30.00; Xero original total 30.00 GBP. Review the source row and any Xero candidates. Confirm reference, amount meaning, currency and payment/credit context.
+- INV-107 (statement.csv · row 10): Review required. Review the source row and any Xero candidates. Confirm reference, amount meaning, currency and payment/credit context.
+- INV-108 (statement.csv · row 11): Review required. Review the source row and any Xero candidates. Confirm reference, amount meaning, currency and payment/credit context.
+
+These are observations for review, not a statement of debt or an explanation of the differences. Current Xero data may differ from records at the statement date.
