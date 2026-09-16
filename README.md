@@ -18,7 +18,7 @@ The workflow never posts accounting entries or sends email.
 **[Download workflow JSON](https://raw.githubusercontent.com/KevinBjorv/xero-supplier-statement-checker/main/workflows/xero-supplier-statement-checker.json)** ·
 **[Download credential-free demo](https://raw.githubusercontent.com/KevinBjorv/xero-supplier-statement-checker/main/workflows/synthetic-demo.json)** ·
 **[Installation guide](docs/installation.md)** ·
-**[Get this workflow implemented](https://cal.com/bjorv/ai-en?oppgave=Xero%20Supplier%20Statement%20Checker)**
+**[Get this workflow implemented](https://bjorvand.ai/en/workflows/xero-supplier-statement-checker?utm_source=github&utm_medium=readme&utm_campaign=xero_statement_checker#implementation)**
 
 > **Preview — verification in progress.** The downloads above track `main`.
 > Local tests and self-hosted n8n checks pass. Live Xero and n8n Cloud verification
@@ -187,7 +187,7 @@ npm run docs:assets # Refresh the preview when golden fixture results change
 ```
 
 Need help installing this for your team?
-**[Get this workflow implemented by Bjorvand AI](https://cal.com/bjorv/ai-en?oppgave=Xero%20Supplier%20Statement%20Checker)**
+**[Get this workflow implemented by Bjorvand AI](https://bjorvand.ai/en/workflows/xero-supplier-statement-checker?utm_source=github&utm_medium=readme&utm_campaign=xero_statement_checker#implementation)**
 or [visit Bjorvand AI](https://bjorvand.ai).
 Implementation services are separate from the free source and workflow.
 

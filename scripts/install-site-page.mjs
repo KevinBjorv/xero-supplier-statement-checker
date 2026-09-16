@@ -5,8 +5,10 @@ const root=resolve(target);const pageDir=join(root,'app/workflows/xero-supplier-
 await mkdir(pageDir,{recursive:true});
 await copyFile('site-integration/page.tsx',join(pageDir,'page.tsx'));
 await copyFile('site-integration/checker.css',join(pageDir,'checker.css'));
+await copyFile('site-integration/opengraph-image.tsx',join(pageDir,'opengraph-image.tsx'));
 await copyFile('site-integration/en-xero-checker.json',join(root,'i18n/en-xero-checker.json'));
-const invariants=['#eksempel','eksempel','/workflows/xero-supplier-statement-checker','https://github.com/KevinBjorv/xero-supplier-statement-checker/releases/download/v0.1.0/xero-supplier-statement-checker.json','/workflow-assets/xero-statement/sample-report.html','Xero Supplier Statement Checker','INV-101','INV-107','xero-checker-header','xero-checker-hero','xero-checker-closing',...Array.from((await readFile('site-integration/page.tsx','utf8')).matchAll(/className="([^"]+)"/g),m=>m[1])];
+const invariants=['#eksempel','eksempel','implementation','/workflows/xero-supplier-statement-checker','https://raw.githubusercontent.com/KevinBjorv/xero-supplier-statement-checker/f35aff189a191854296e11d3b303834646c61c4e/workflows/xero-supplier-statement-checker.json','/workflow-assets/xero-statement/sample-report.html','Xero Supplier Statement Checker','INV-101','INV-107','xero-checker-header','xero-checker-hero','xero-checker-closing','0.1.0-preview.1','BusinessApplication','SoftwareApplication','n8n','https://opensource.org/license/mit','n8n · Xero · MIT','bjorvand.ai',...Array.from((await readFile('site-integration/page.tsx','utf8')).matchAll(/className="([^"]+)"/g),m=>m[1])];
+invariants.push('#f5f1e8','#181a18','58px 68px','sans-serif','-3px','#4c514a','#a74723','Offer','NOK','opengraph-image');
 await writeFile(join(root,'i18n/invariants-xero-checker.json'),JSON.stringify([...new Set(invariants)],null,2)+'\n');
 const assets=join(root,'public/workflow-assets/xero-statement');await mkdir(assets,{recursive:true});await copyFile('fixtures/expected/report.html',join(assets,'sample-report.html'));
 const sitemapPath=join(root,'app/sitemap.ts');let sitemap=await readFile(sitemapPath,'utf8');

@@ -1,6 +1,7 @@
 {
+  "/workflows/xero-supplier-statement-checker/opengraph-image": "/en/workflows/xero-supplier-statement-checker/opengraph-image",
   "Leverandørkontroll i Xero": "Xero supplier statement checker",
-  "Kontroller leverandørutskrifter mot Xero | Bjorvand AI": "Check supplier statements against Xero | Bjorvand AI",
+  "Kontroller leverandørutskrifter mot Xero | Bjorvand AI": "Xero Supplier Statement Checker | Bjorvand AI",
   "Sammenlign fakturareferanser og opprinnelige beløp med Xero. Få en rapport med avvik, kildereferanser og tydelige punkter for manuell kontroll.": "Compare invoice references and original totals with Xero. Get an exception report with source references and clear points for manual review.",
   "Sette opp kontroll av leverandørutskrifter mot Xero": "Implement supplier statement checking against Xero",
   "Få arbeidsflyten satt opp": "Get this workflow implemented",
@@ -50,5 +51,18 @@
   "Koden og malen er tilgjengelige med MIT-lisens. Oppsett, tilpasning og eventuell oppfølging avtales separat.": "The code and template are available under the MIT license. Setup, customization, and optional support are agreed separately.",
   "Prøv selv.": "Try it yourself.",
   "Eller få det satt opp for teamet.": "Or have it implemented for your team.",
-  "Ta med en representativ utskrift og beskriv hvordan dere kontrollerer den i dag. Vi avklarer format, tilganger, manuelle kontrollpunkter og pris før arbeidet starter.": "Bring a representative statement and describe how you check it today. We agree formats, access, manual review steps, and price before work starts."
+  "Ta med en representativ utskrift og beskriv hvordan dere kontrollerer den i dag. Vi avklarer format, tilganger, manuelle kontrollpunkter og pris før arbeidet starter.": "Bring a representative statement and describe how you check it today. We agree formats, access, manual review steps, and price before work starts.",
+  "Forhåndsversjon: Testene med syntetiske data og egen n8n-installasjon er gjennomført. Verifisering mot en ekte Xero-testorganisasjon og n8n Cloud gjenstår. Bruk testdata først.": "Preview: synthetic tests and self-hosted n8n checks have passed. Verification against a live Xero test organization and n8n Cloud is still pending. Start with test data.",
+  "Endrer arbeidsflyten noe i Xero?": "Does the workflow change anything in Xero?",
+  "Nei. Den leser kontakter og leverandørfakturaer med begrensede OAuth-rettigheter. Ingen posteringer utføres, og ingen e-post sendes.": "No. It reads contacts and purchase bills using limited OAuth permissions. It posts no accounting entries and sends no email.",
+  "Må vi bruke AI eller dele regnskapsdata med OpenAI?": "Do we need AI or have to share accounting data with OpenAI?",
+  "CSV og det syntetiske eksempelet bruker ikke AI. Valgfritt PDF-uttrekk sender dokumenttekst til OpenAI. Xero-fakturaene sendes ikke til AI, og en operatør bekrefter de uttrukne linjene.": "CSV and the synthetic example use no AI. Optional PDF extraction sends document text to OpenAI. Xero bills are not sent to AI, and an operator confirms the extracted rows.",
+  "Hva koster det å få arbeidsflyten satt opp?": "What does implementation cost?",
+  "Kildekoden er gratis med MIT-lisens. Vi avklarer pris for oppsett og tilpasning etter å ha sett formatet og kontrollbehovet. Eventuell drift, Xero-appabonnement og OpenAI-bruk kommer i tillegg.": "The source is free under the MIT license. We agree an implementation and customization price after reviewing your format and checking requirements. Hosting, any Xero app subscription and OpenAI usage are separate costs.",
+  "Gratis kildekode med MIT-lisens. Oppsett og drift avtales separat.": "Free source under the MIT license. Implementation and hosting are agreed separately.",
+  "Spørsmål før dere prøver.": "Questions before you try it.",
+  "Kontroller leverandørutskrifter mot Xero med n8n. Bjorvand AI.": "Check supplier statements against Xero with n8n. Bjorvand AI.",
+  "Hva på leverandørutskriften stemmer med Xero?": "Which statement lines match your Xero bills?",
+  "Se avvikene. Behold kildene. Godkjenn selv.": "See the exceptions. Keep the evidence. Stay in control.",
+  "Gratis arbeidsflyt · Forhåndsversjon": "Free workflow · Preview"
 }

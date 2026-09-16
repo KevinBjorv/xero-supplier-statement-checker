@@ -1,4 +1,6 @@
 .checker-page{background:var(--paper,#f5f1e8);color:var(--ink,#181a18)}
+.checker-status{padding:16px 18px;border-left:3px solid #a84e29;background:#eee7da;font-size:14px}
+.checker-faq details{border-bottom:1px solid #d7d1c6;padding:20px 0}.checker-faq summary{cursor:pointer;font-size:18px;font-weight:600;line-height:1.4}.checker-faq summary:focus-visible{outline:2px solid currentColor;outline-offset:6px}
 .checker-hero{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(32px,5vw,90px);align-items:center;padding-top:clamp(64px,7vw,112px);padding-bottom:clamp(64px,7vw,112px)}
 .checker-hero h1{font-size:clamp(38px,4.4vw,72px);line-height:1.03;letter-spacing:-.055em;margin:0 0 28px;max-width:15ch}
 .checker-hero h1 span{color:var(--orange,#c8582a)}

@@ -21,6 +21,11 @@
    Norwegian booking paths on the deployed site. The other site's uncommitted
    work must be handled in its own release scope.
 
+Preview distribution may link to the already-public workflow file at a verified,
+immutable Git commit while the stable release is pending. Label the page and
+each listing as a preview and keep the outstanding live-provider checks visible.
+This does not satisfy the stable-release acceptance gates.
+
 ## Template directory description
 
 Compare a supplier statement against Xero purchase bills with evidence-backed

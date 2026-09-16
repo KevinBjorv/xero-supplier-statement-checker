@@ -18,7 +18,7 @@ below are evidenced for the release commit.
 | Review-screen accessibility | Final form checked at 390/768/1440/1920 pixels with no page overflow; table receives keyboard focus and scrolls horizontally with arrow keys |
 | Xero test organization | Pending dedicated application, OAuth and live run |
 | n8n Cloud fresh import/run | Pending access to a Cloud workspace |
-| Bilingual site | Typecheck and production build passed; both languages checked at 390/768/1440/1920 without overflow; English booking questions and workflow context verified without submission |
+| Bilingual site | Published at bjorvand.ai from site commit b721c74; production build, TypeScript, lint and 856 site/SEO/localization assertions passed; both languages checked at 390/768/1440/1920; localized social images, canonical URLs, FAQs and pinned workflow download verified |
 | Public source / release / directory submission | Source published on GitHub; v0.1.0 release assets staged as a draft; final release and directory submission remain pending |
 | Permissioned real workflows / paid implementation | Not yet performed |
 | English YouTube demo | Deferred by user |

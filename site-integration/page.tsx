@@ -10,13 +10,21 @@ import "./checker.css";
 const title = "Kontroller leverandørutskrifter mot Xero | Bjorvand AI";
 const description = "Sammenlign fakturareferanser og opprinnelige beløp med Xero. Få en rapport med avvik, kildereferanser og tydelige punkter for manuell kontroll.";
 const route = "/workflows/xero-supplier-statement-checker";
-const download = "https://github.com/KevinBjorv/xero-supplier-statement-checker/releases/download/v0.1.0/xero-supplier-statement-checker.json";
+const socialImage = "/workflows/xero-supplier-statement-checker/opengraph-image";
+const download = "https://raw.githubusercontent.com/KevinBjorv/xero-supplier-statement-checker/f35aff189a191854296e11d3b303834646c61c4e/workflows/xero-supplier-statement-checker.json";
 const sample = "/workflow-assets/xero-statement/sample-report.html";
 const task = "Sette opp kontroll av leverandørutskrifter mot Xero";
+const preview = "Forhåndsversjon: Testene med syntetiske data og egen n8n-installasjon er gjennomført. Verifisering mot en ekte Xero-testorganisasjon og n8n Cloud gjenstår. Bruk testdata først.";
+const faqs = [
+  { question: "Endrer arbeidsflyten noe i Xero?", answer: "Nei. Den leser kontakter og leverandørfakturaer med begrensede OAuth-rettigheter. Ingen posteringer utføres, og ingen e-post sendes." },
+  { question: "Må vi bruke AI eller dele regnskapsdata med OpenAI?", answer: "CSV og det syntetiske eksempelet bruker ikke AI. Valgfritt PDF-uttrekk sender dokumenttekst til OpenAI. Xero-fakturaene sendes ikke til AI, og en operatør bekrefter de uttrukne linjene." },
+  { question: "Hva koster det å få arbeidsflyten satt opp?", answer: "Kildekoden er gratis med MIT-lisens. Vi avklarer pris for oppsett og tilpasning etter å ha sett formatet og kontrollbehovet. Eventuell drift, Xero-appabonnement og OpenAI-bruk kommer i tillegg." },
+];
 
 export const metadata: Metadata = {
   title, description, alternates: languageAlternates(`${SITE_URL}${route}`),
-  openGraph: { title, description, url: `${SITE_URL}${route}`, type: "website", locale: "nb_NO" },
+  openGraph: { title, description, url: `${SITE_URL}${route}`, type: "website", locale: "nb_NO", images: [{ url: socialImage, width: 1200, height: 630, alt: title }] },
+  twitter: { card: "summary_large_image", title, description, images: [socialImage] },
 };
 
 function ImplementLink({ location }: { location: string }) {
@@ -29,11 +37,13 @@ export default function SupplierStatementCheckerPage() {
       <a className="skip-link" href="#innhold">Hopp til innholdet</a>
       <SiteHeader bookingLocation="xero-checker-header" bookingTask={task} />
       <main id="innhold">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareApplication", name: "Xero Supplier Statement Checker", url: `${SITE_URL}${route}`, description, applicationCategory: "BusinessApplication", operatingSystem: "n8n", softwareVersion: "0.1.0", license: "https://opensource.org/license/mit", author: { "@type": "Organization", name: "Bjorvand AI", url: SITE_URL }, offers: { "@type": "Offer", price: "0", priceCurrency: "NOK", description: "Gratis kildekode med MIT-lisens. Oppsett og drift avtales separat." } }).replace(/</g, "\\u003c") }} />
         <section className="shell checker-hero">
           <div>
             <h1>Leverandørutskriften sier én ting.<br /><span>Hva ligger i Xero?</span></h1>
             <p className="checker-lead">Last opp utskriften. Velg leverandøren. Få en konkret liste over hvilke linjer som stemmer, avviker eller trenger en nærmere titt.</p>
             <p>Arbeidsflyten sammenligner fakturareferanser og opprinnelige fakturabeløp. Du får kilden bak hvert resultat, og ingenting bokføres eller sendes.</p>
+            <p className="checker-status">{preview}</p>
             <div className="checker-actions"><a className="button button-secondary" href={download}><Download size={18} aria-hidden="true" />Last ned arbeidsflyten</a><ImplementLink location="xero-checker-hero" /></div>
             <a className="checker-text-link" href="#eksempel">Se rapporten først<ArrowDown size={16} aria-hidden="true" /></a>
           </div>
@@ -57,7 +67,9 @@ export default function SupplierStatementCheckerPage() {
 
         <section className="shell checker-section checker-two-columns"><h2>Dette trenger du.</h2><div><p>En n8n-installasjon du kontrollerer, tilgang til riktig Xero-organisasjon og en egen Xero OAuth-app med lesetilgang. Oppsettet bruker standardnoder og er laget for n8n Cloud og egen drift.</p><p>CSV og testeksempelet krever ingen AI-nøkkel. PDF-uttrekk krever en OpenAI API-nøkkel og tillatelse til å sende dokumentteksten dit. Xero-data sendes ikke til AI for matching.</p><p>Du dekker eventuell n8n-drift, Xero-appabonnement og OpenAI-bruk. Pris og datalagring avhenger av leverandørene og oppsettet ditt. Veiledningen forklarer begrensninger, logging og sletting.</p><p>Koden og malen er tilgjengelige med MIT-lisens. Oppsett, tilpasning og eventuell oppfølging avtales separat.</p></div></section>
 
-        <section className="checker-closing shell checker-section"><h2>Prøv selv.<br />Eller få det satt opp for teamet.</h2><p className="checker-lead">Ta med en representativ utskrift og beskriv hvordan dere kontrollerer den i dag. Vi avklarer format, tilganger, manuelle kontrollpunkter og pris før arbeidet starter.</p><div className="checker-actions"><a className="button button-secondary" href={download}><Download size={18} aria-hidden="true" />Last ned arbeidsflyten</a><ImplementLink location="xero-checker-closing" /></div></section>
+        <section className="shell checker-section checker-two-columns"><h2>Spørsmål før dere prøver.</h2><div className="checker-faq">{faqs.map(faq => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div></section>
+
+        <section id="implementation" className="checker-closing shell checker-section"><h2>Prøv selv.<br />Eller få det satt opp for teamet.</h2><p className="checker-lead">Ta med en representativ utskrift og beskriv hvordan dere kontrollerer den i dag. Vi avklarer format, tilganger, manuelle kontrollpunkter og pris før arbeidet starter.</p><div className="checker-actions"><a className="button button-secondary" href={download}><Download size={18} aria-hidden="true" />Last ned arbeidsflyten</a><ImplementLink location="xero-checker-closing" /></div></section>
       </main>
       <SiteFooter />
       <BookingSheet bookingUrl={BOOKING_URL} />
