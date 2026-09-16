@@ -66,6 +66,16 @@ test('zero original totals match safely',()=>{
   const line=clone(statement[0]),r=clone(retrieval);line.originalTotal='0.00';line.outstanding='0.00';r.bills[0].total='0.00';r.bills[0].amountDue='0.00';
   assert.equal(core.checkStatement(context,[line],r).lines[0].result,'matched');
 });
+test('a statement row in another currency never gets an amount comparison',()=>{
+  const line=clone(statement[0]);line.currency='USD';
+  const result=core.checkStatement(context,[line],retrieval).lines[0];
+  assert.equal(result.result,'review_required');assert.equal(result.comparison,null);
+});
+test('review-only credits and partial payments do not produce automatic differences',()=>{
+  const line=clone(statement[0]);line.kind='credit';
+  assert.equal(core.checkStatement(context,[line],retrieval).lines[0].comparison,null);
+  assert.equal(core.checkStatement(context,[statement[4]],retrieval).lines[0].comparison,null);
+});
 test('same normalized statement reference always requires review on both rows',()=>{
   const b=clone(statement[0]);b.id='second';b.reference=' inv-100 ';
   assert.equal(core.checkStatement(context,[statement[0],b],retrieval).counts.review_required,2);

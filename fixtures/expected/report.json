@@ -306,11 +306,7 @@
           "link": "https://go.xero.com/AccountsPayable/View.aspx?InvoiceID=00000000-0000-4000-8000-000000000004"
         }
       ],
-      "comparison": {
-        "statementOriginal": "200.00",
-        "xeroOriginal": "200.00",
-        "difference": "0.00"
-      },
+      "comparison": null,
       "reasons": [
         "PARTIAL_PAYMENT_ON_STATEMENT",
         "PARTIAL_PAYMENT_IN_XERO"
@@ -398,11 +394,7 @@
           "link": "https://go.xero.com/AccountsPayable/View.aspx?InvoiceID=00000000-0000-4000-8000-000000000005"
         }
       ],
-      "comparison": {
-        "statementOriginal": "30.00",
-        "xeroOriginal": "30.00",
-        "difference": "0.00"
-      },
+      "comparison": null,
       "reasons": [
         "DUPLICATE_STATEMENT_REFERENCE"
       ],
@@ -452,11 +444,7 @@
           "link": "https://go.xero.com/AccountsPayable/View.aspx?InvoiceID=00000000-0000-4000-8000-000000000005"
         }
       ],
-      "comparison": {
-        "statementOriginal": "30.00",
-        "xeroOriginal": "30.00",
-        "difference": "0.00"
-      },
+      "comparison": null,
       "reasons": [
         "DUPLICATE_STATEMENT_REFERENCE"
       ],

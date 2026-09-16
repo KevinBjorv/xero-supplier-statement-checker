@@ -48,7 +48,7 @@ export function checkStatement(context: RunContext, sourceLines: StatementLine[]
           if (paid > 0n && due > 0n) reasons.push('PARTIAL_PAYMENT_IN_XERO');
           if (credited !== 0n) reasons.push('CREDIT_ALLOCATION_IN_XERO');
           if (bill.status === 'PAID' && due !== 0n) reasons.push('INCONSISTENT_XERO_STATUS');
-          if (line.originalTotal !== null && line.amountMeaning === 'tax_inclusive_original') {
+          if (reasons.length === 0 && line.originalTotal !== null && line.amountMeaning === 'tax_inclusive_original') {
             const original = minor(line.originalTotal, context.currency);
             comparison = { statementOriginal: decimal(original, context.currency), xeroOriginal: decimal(total, context.currency), difference: decimal(original - total, context.currency) };
           }

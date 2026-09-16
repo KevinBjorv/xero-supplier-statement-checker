@@ -11,7 +11,9 @@ export function reportCsv(report: Report): string {
   return '\uFEFF' + rows.map(row => row.map(value => csvCell(value, true)).join(',')).join('\r\n') + '\r\n';
 }
 export function previewHtml(lines: StatementLine[]): string {
-  return `<table><thead><tr><th>Source</th><th>Reference</th><th>Original</th><th>Outstanding</th><th>Meaning</th><th>Issues</th></tr></thead><tbody>${lines.map(line => `<tr><td>${escapeHtml(sourceLabel(line))}</td><td>${escapeHtml(line.reference)}</td><td>${escapeHtml(line.originalTotal)}</td><td>${escapeHtml(line.outstanding)}</td><td>${escapeHtml(line.amountMeaning)}</td><td>${escapeHtml(line.issues.join(', '))}</td></tr>`).join('')}</tbody></table>`;
+  const meaning = { tax_inclusive_original: 'Original including tax', tax_exclusive: 'Excluding tax', unknown: 'Unconfirmed' };
+  const readable = (issue: string) => /^[A-Z_]+$/.test(issue) ? issue.toLowerCase().replaceAll('_',' ') : issue;
+  return `<table><thead><tr><th>Source</th><th>Reference</th><th>Original</th><th>Outstanding</th><th>Meaning</th><th>Issues</th></tr></thead><tbody>${lines.map(line => `<tr><td>${escapeHtml(sourceLabel(line))}</td><td>${escapeHtml(line.reference)}</td><td>${escapeHtml(line.originalTotal)}</td><td>${escapeHtml(line.outstanding)}</td><td>${meaning[line.amountMeaning]}</td><td>${escapeHtml(line.issues.map(readable).join('; '))}</td></tr>`).join('')}</tbody></table>`;
 }
 export function summaryHtml(report: Report): string {
   return `<h2>${report.status === 'completed' ? 'Check completed' : report.status === 'cancelled' ? 'Check cancelled' : 'Check failed — no matching conclusions'}</h2><p>${escapeHtml(report.context.supplierName)} · ${escapeHtml(report.context.currency)} · statement ${escapeHtml(report.context.statementDate)}</p><ul>${Object.entries(report.counts).map(([key, value]) => `<li>${LABELS[key as keyof typeof LABELS]}: ${value}</li>`).join('')}</ul>${report.errors.map(error => `<p>${escapeHtml(error)}</p>`).join('')}<p>Download the ZIP to read every source row and its evidence. This is not a supplier balance reconciliation.</p>`;
