@@ -1,158 +1,197 @@
-# Xero Supplier Statement Checker
+# Xero Supplier Statement Checker — n8n workflow
 
-An operator-controlled, read-only n8n workflow for comparing supplier statement
-lines with Xero purchase bills. It produces HTML, CSV and JSON reports in a ZIP.
-Matching uses TypeScript and integer minor units. AI can extract PDF fields;
-it never selects matches, calculates differences, posts entries or sends email.
+[![Checker verification](https://github.com/KevinBjorv/xero-supplier-statement-checker/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/KevinBjorv/xero-supplier-statement-checker/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-183331)](LICENSE)
+[![Xero access: read only](https://img.shields.io/badge/Xero%20access-read%20only-216c51)](docs/installation.md)
 
-**Release status:** implementation under verification. Local fixture and n8n
-runtime checks pass; see [verification status](docs/verification.md) for the
-separate live-Xero, Cloud, publication and pilot gates. This is not full supplier
-balance reconciliation or a historical Xero snapshot.
+![Xero Supplier Statement Checker by Bjorvand AI: read-only n8n checks with evidence for every exception.](docs/assets/repository-cover.jpg)
 
-## Try the synthetic example
+**Compare supplier statements with Xero purchase bills and review the exceptions.**
+This open-source accounts payable workflow accepts CSV or text-based PDF statements,
+asks an operator to confirm the rows, then checks invoice references and original
+totals. Download an evidence-backed HTML, CSV and JSON report in one ZIP.
 
-Use Node.js 24 or later:
+Matching is deterministic TypeScript with exact decimal arithmetic. Optional
+OpenAI extraction reads PDF fields; the operator reviews them before any matching.
+The workflow never posts accounting entries or sends email.
+
+**[Download workflow JSON](https://raw.githubusercontent.com/KevinBjorv/xero-supplier-statement-checker/main/workflows/xero-supplier-statement-checker.json)** ·
+**[Download credential-free demo](https://raw.githubusercontent.com/KevinBjorv/xero-supplier-statement-checker/main/workflows/synthetic-demo.json)** ·
+**[Installation guide](docs/installation.md)** ·
+**[Get this workflow implemented](https://cal.com/bjorv/ai-en?oppgave=Xero%20Supplier%20Statement%20Checker)**
+
+> **Preview — verification in progress.** The downloads above track `main`.
+> Local tests and self-hosted n8n checks pass. Live Xero and n8n Cloud verification
+> remain pending; the first release is still a draft. See the
+> [verification record](docs/verification.md) before processing real statements.
+
+[Example report](#see-the-example-report) · [Quick start](#quick-start) ·
+[How it works](#how-it-works) · [Matching rules](#matching-rules) ·
+[FAQ](#frequently-asked-questions) · [Contributing](CONTRIBUTING.md)
+
+## See the example report
+
+The checked-in ten-line fixture includes a paid bill, an amount difference,
+a missing reference match, a credit, duplicates and an outstanding-only row.
+**Every source row stays in the report. All example data is fictional.**
+
+![Synthetic report preview: 2 matched, 1 amount difference, 1 not found and 6 requiring review. INV-101 compares 250.00 with 245.00 GBP; INV-107 has only a 45.00 GBP outstanding amount and is not automatically compared.](docs/assets/report-preview.svg)
+
+This illustration is generated from the real [golden report JSON](fixtures/expected/report.json).
+Inspect the [source CSV](fixtures/statement.csv), [report CSV](fixtures/expected/report.csv),
+[standalone report HTML](fixtures/expected/report.html) or
+[unsent follow-up draft](fixtures/expected/follow-up-draft.txt).
+Run the demo below to open the full HTML report locally.
+
+## Quick start
+
+### Try it in n8n without credentials
+
+1. Download and import [synthetic-demo.json](https://raw.githubusercontent.com/KevinBjorv/xero-supplier-statement-checker/main/workflows/synthetic-demo.json).
+2. Publish the workflow and open its production form URL while signed in to n8n.
+3. Submit the demo, review the counts, then select **Continue** to download the ZIP.
+
+The demo needs no Xero account, OpenAI key or real supplier data. The tested local
+runtime is **n8n 2.39.6**, using authenticated Form Trigger 2.6. Cloud compatibility
+still needs a fresh-install run; see [prerequisites and setup](docs/installation.md).
+
+### Run the same example from source
+
+Use **Node.js 24 or later**:
 
 ```sh
+git clone https://github.com/KevinBjorv/xero-supplier-statement-checker.git
+cd xero-supplier-statement-checker
 npm ci
 npm run demo
 npm run check
 ```
 
-Open `output/demo/report.html`. The predefined ten-line statement produces:
+Open `output/demo/report.html`. Expected counts: **2 matched · 1 amount difference ·
+1 not found · 6 review required**. No credentials are needed.
 
-| Result | Count |
-| --- | ---: |
-| Matched | 2 |
-| Amount difference | 1 |
-| Not found in retrieved Xero data | 1 |
-| Review required | 6 |
+For live checking, follow the [Xero OAuth and installation guide](docs/installation.md).
+It covers tenant selection, the three read-only scopes, CSV mapping, optional
+OpenAI setup, execution retention and operator confirmation.
 
-The same source also generates the downloadable n8n templates:
+## How it works
 
-- `workflows/synthetic-demo.json`: authenticated form, no provider credentials.
-- `workflows/xero-supplier-statement-checker.json`: live CSV/PDF workflow.
-- `workflows/fixture-verification.json`: manual-trigger fixture for CLI verification.
-
-`npm run build` rebuilds templates. `npm run workflow:check` checks distributed
-templates against source without changing them. Do not edit bundled Code nodes;
-edit TypeScript and regenerate. `workflows/checksums.json` records SHA-256 values.
-
-## Install in n8n
-
-The tested local runtime is **n8n 2.39.6**. Use this version or newer; the template
-uses authenticated Form Trigger 2.6. Import the synthetic demo first and run it
-to confirm your installation supports all required nodes. Cloud verification is
-a separate release gate, not implied by a successful local run.
-
-1. Import the live workflow JSON. It is inactive and contains no credentials.
-2. Set your Xero tenant ID in **Operator configuration**. Keep one tenant per
-   workflow. Obtain the ID with an authenticated `GET https://api.xero.com/connections`
-   using the OAuth credential below; select the intended organization by name.
-3. Create a **generic OAuth2 API** credential, not n8n's built-in Xero credential:
-
-   | Setting | Value |
-   | --- | --- |
-   | Grant | Authorization Code |
-   | Authorization URL | `https://login.xero.com/identity/connect/authorize` |
-   | Token URL | `https://identity.xero.com/connect/token` |
-   | Scope | `offline_access accounting.contacts.read accounting.invoices.read` |
-   | Client authentication | Header |
-   | Client ID / secret | Your own Xero application's credentials |
-
-4. Register the exact callback URL displayed by n8n in your Xero Web app. For
-   local n8n this is normally `http://localhost:5678/rest/oauth2-credential/callback`;
-   Cloud and hosted instances use their own HTTPS callback. Complete OAuth for
-   the intended test organization first. If an older connection granted write
-   scopes, revoke it and authorize a fresh read-only connection.
-5. Assign that credential to **Fetch Xero Contacts** and **Fetch Xero Invoices**.
-6. For optional PDFs, set `aiEnabled` to `true` and enable the initially disabled
-   **Extract PDF fields with OpenAI** node; assign an HTTP Header Auth
-   credential to **Extract PDF fields with OpenAI**, with name `Authorization`
-   and value `Bearer YOUR_OPENAI_API_KEY`. Set the model in Operator configuration
-   if necessary; the default is `gpt-5.6-terra`. Do not put secrets into nodes.
-7. Review [security and retention](docs/security.md), publish the workflow, and
-   open its production form URL while signed in to n8n. The form requires workflow
-   execution access. Follow n8n's own authorization prompt if shown.
-8. Upload a statement, select and confirm a contact, map CSV columns or review
-   PDF extraction, and confirm every transaction line. Submit the result summary
-   to download the report ZIP.
-
-No separate backend, account database or Bjorvand service is required. An
-installation needs n8n's normal database and binary storage. Self-hosted Code
-nodes require the built-in `crypto` module for SHA-256; allow only `crypto` in the
-task runner with `NODE_FUNCTION_ALLOW_BUILTIN=crypto`. No external Code-node
-module imports are required. Cloud already supplies `crypto`.
-
-## Supported inputs and review
-
-- UTF-8 CSV (BOM permitted), with comma, semicolon or tab delimiter. Select the
-  number and date formats explicitly. Quoted multiline fields are supported.
-- Text-based PDF with readable text on every page. Scanned, encrypted or partly
-  unreadable documents are rejected. No OCR is performed.
-- Maximum 10 MiB, 50 PDF pages and 1,000 statement rows. Limits stop processing;
-  data is never silently truncated.
-- One supplier and currency per run. Currency codes with defined minor units
-  from the checked-in ISO 4217 table are supported; no currency conversion.
-
-Map original tax-inclusive invoice totals separately from outstanding balances.
-A generic `Amount` heading has no assumed meaning. Missing original totals,
-ambiguous extraction, partial payments, credits, duplicates and cancellations
-require review even when a reference candidate is visible.
-
-The review screen exposes canonical CSV for corrections. Keep existing source
-IDs/pages/rows. Do not delete rows: use kind `other` for unsupported rows. Added
-PDF rows need a source page. Original values and confirmed values are preserved
-in the report audit evidence. Review sessions expire after 24 hours.
-
-## Outputs and interpretation
-
-- `report.html`: standalone, printable report with every statement row.
-- `report.csv`: spreadsheet-safe output; formula-like text is prefixed with an
-  apostrophe. Exact originals remain in JSON.
-- `report.json`: schema version, run context, file hash, source values, review
-  changes, retrieval manifest, candidates and comparisons.
-- `follow-up-draft.txt`: optional unsent, deterministic wording. No mail service
-  is connected. Failed runs never generate a follow-up draft.
-
-Matched means one eligible bill and equal comparable original totals. An amount
-difference does not establish its cause. Not found means a reliable reference
-had no eligible match in a complete retrieval, not that documents or debt exist.
-The statement date and Xero retrieval interval are both recorded. Current data
-is not an atomic or historical snapshot.
-
-## Verification and development
-
-```sh
-npm run typecheck
-npm test
-npm run build
-npm run workflow:check
+```mermaid
+flowchart LR
+    A[Upload CSV or text PDF] --> B[Select supplier from Xero contacts]
+    B --> C[Map CSV or extract PDF fields]
+    C --> D[Operator corrects and confirms every row]
+    D --> E[Retrieve supplier bills completely]
+    E --> F[Deterministic reference and total checks]
+    F --> G[Review summary and download ZIP]
+    E -->|Retrieval incomplete| H[Failed diagnostic report]
 ```
 
-Optional live extraction: place your own key in ignored `.env.local`, then run
-`npm run test:openai`. Only synthetic fixture text is sent. This incurs OpenAI
-usage charges. Never commit the env file or execution outputs.
+- **Operator-controlled:** one organization, one selected supplier and one currency.
+- **Read-only Xero:** contacts and purchase bills, including older and paid bills.
+- **Exact money:** decimal strings and integer minor units; zero tolerance, no silent rounding.
+- **Traceable results:** original values, source rows/pages, corrections, candidates and reasons.
+- **Explicit failure:** incomplete retrieval produces no matches, differences or not-found conclusions.
+- **Standard n8n nodes:** bundled TypeScript, no external Code-node npm imports and no separate application server.
 
-Optional local orchestration checks: install `n8n@2.39.6` under `.runtime/n8n`,
-then run `node scripts/verify-n8n.mjs csv`, `pdf`, and `api-failure` **sequentially**.
-These use real n8n nodes with scripted form inputs and synthetic external API
-responses. They do not constitute live Xero or browser-form verification.
+## Matching rules
 
-See [architecture](docs/architecture.md), [verification](docs/verification.md),
-[release procedure](docs/release.md), and [pilot scorecard](docs/pilots.md).
+| Result | What it means |
+| --- | --- |
+| **Matched** | One eligible bill with the same supplier invoice reference and equal comparable original totals. |
+| **Amount difference** | One eligible bill, but the tax-inclusive original totals differ. |
+| **Not found in retrieved Xero data** | A reliable reference has no candidate after verified complete retrieval. |
+| **Review required** | Uncertain extraction, multiple candidates, duplicates, credits, partial payments, unsafe statuses or insufficient comparable data. |
 
-## Costs and external processing
+References retain punctuation, internal spaces and leading zeros. Only Unicode
+normalization, outer whitespace and ASCII case are normalized. Amounts, dates and
+fuzzy similarity never establish a match. Normalization collisions require review.
 
-Operators cover their n8n plan/hosting, applicable Xero app tier, and OpenAI
-usage for PDFs. CSV and synthetic mode make no OpenAI requests. Model usage is
-recorded in the live extraction test evidence; pricing may change. Check provider
-pricing before deployment instead of relying on a fixed cost estimate.
+An outstanding balance is **never** compared with an original invoice total.
+Fully paid bills may match their original total; their current paid status is
+shown separately. Ambiguous candidates stay visible for human review.
 
-PDF text is sent to OpenAI only when enabled. Xero bill data is processed by code
-inside n8n. `store: false` disables Responses application storage but is not a
-promise of zero provider retention. See [OpenAI data controls](https://developers.openai.com/api/docs/guides/your-data).
+## Supported statements and outputs
 
-MIT license. Setup and customization are available through Bjorvand AI; paid
-implementation is separate from the free source and workflow template.
+| Input | Requirements | AI needed? |
+| --- | --- | --- |
+| CSV | UTF-8; comma, semicolon or tab; explicit column, date and number formats. Quoted multiline fields and leading zeros are preserved. | No |
+| PDF | Readable text on every page; source excerpts checked; operator confirms extracted rows. Scanned, encrypted and partly unreadable files are rejected. | Optional OpenAI extraction must be enabled |
+
+Limits: **10 MiB · 50 PDF pages · 1,000 rows**. Exceeding a limit stops the run;
+it never silently truncates data. Currency conversion, payment reconciliation,
+accounting posting, email sending and scanned-document OCR are outside scope.
+
+The ZIP contains:
+
+| File | Purpose |
+| --- | --- |
+| `report.html` | Standalone readable report with summary, exceptions and every statement row. |
+| `report.csv` | One row per source line, with spreadsheet formula-injection protection. |
+| `report.json` | Complete evidence, exact original values, candidates, corrections and retrieval manifest. |
+| `follow-up-draft.txt` | Optional deterministic, **unsent** draft. Never produced for failed retrieval. |
+
+## Frequently asked questions
+
+### Is this full supplier statement reconciliation?
+
+It supports statement review by checking references and original invoice totals.
+A completed run does not reconcile the supplier balance, prove a debt or establish
+that an accounting record is wrong. Xero data reflects the current retrieval
+interval, not a historical or atomic snapshot at the statement date.
+
+### Does it change anything in Xero?
+
+No. The workflow uses `offline_access`, `accounting.contacts.read` and
+`accounting.invoices.read`. There are no accounting-write or email-send nodes.
+Use a fresh authorization if an existing connection has broader scopes.
+
+### Do I need OpenAI, and where does my data go?
+
+CSV and the synthetic demo require no AI. When PDF extraction is enabled, PDF
+text is sent to OpenAI; Xero bill data stays outside the AI request. `store: false`
+is not a zero-retention guarantee. Credentials belong in n8n's credential store.
+Read the [data handling and retention guide](docs/security.md).
+
+### Can I use n8n Cloud or self-host it?
+
+The workflow is designed for both. Self-hosted n8n 2.39.6 has been exercised;
+a clean n8n Cloud run remains an explicit release gate. Operators cover their
+n8n hosting/plan, any applicable Xero app tier and optional OpenAI PDF usage.
+
+## Documentation and verification
+
+| Guide | Covers |
+| --- | --- |
+| [Installation](docs/installation.md) | OAuth, inputs, mapping, confirmation, configuration and costs. |
+| [Architecture](docs/architecture.md) | Contracts, matching, extraction, retrieval and bundling. |
+| [Verification record](docs/verification.md) | Executed checks, synthetic versus live coverage, remaining release gates. |
+| [Data handling](docs/security.md) | Credentials, provider processing, paused forms, backups and retention. |
+| [Live Xero checklist](docs/live-xero-test.md) | Tenant, scopes, refresh, pagination, paid bills and bill links. |
+| [Release and upgrades](docs/release.md) | Reproduction, checksums, rollback and publication. |
+| [Pilot scorecard](docs/pilots.md) | Permissioned evaluation, false findings and operator review time. |
+
+Automated checks cover matching edge cases, precise amounts, CSV parsing, PDF
+provenance, operator corrections, incomplete pagination, retries, safe exports
+and byte-for-byte bundle parity. The public CI badge links to the current results.
+It does not imply live Xero, Cloud, customer-pilot or production approval.
+
+## Contributing and support
+
+Bug reports and focused improvements are welcome. Start with the
+[contribution guide](CONTRIBUTING.md) and use **synthetic, sanitized examples only**.
+See [security reporting](SECURITY.md) for a private disclosure route.
+
+```sh
+npm run check       # TypeScript, tests, workflow parity and report-preview parity
+npm run build       # Regenerate n8n workflow exports after source changes
+npm run docs:assets # Refresh the preview when golden fixture results change
+```
+
+Need help installing this for your team?
+**[Get this workflow implemented by Bjorvand AI](https://cal.com/bjorv/ai-en?oppgave=Xero%20Supplier%20Statement%20Checker)**
+or [visit Bjorvand AI](https://bjorvand.ai).
+Implementation services are separate from the free source and workflow.
+
+[MIT licensed](LICENSE). Independent project by Bjorvand AI; not affiliated with
+or endorsed by Xero, n8n or OpenAI. Their names identify the services this workflow uses.

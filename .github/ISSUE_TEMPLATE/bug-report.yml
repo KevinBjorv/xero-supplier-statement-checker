@@ -1,0 +1,35 @@
+name: Bug report
+description: Report a reproducible problem using synthetic data only.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: "Do not upload customer statements, credentials, tenant IDs, raw Xero responses or signed form URLs. Report security vulnerabilities privately using SECURITY.md."
+  - type: input
+    id: version
+    attributes:
+      label: Versions
+      description: Source commit or workflow version, n8n version, and Cloud or self-hosted.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps and synthetic example
+      description: Use fictional references and amounts, or describe which checked-in fixture reproduces the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+      description: Include the result category or sanitized error code if available.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Safe to publish
+      options:
+        - label: This report contains only synthetic data and no credentials or private identifiers.
+          required: true

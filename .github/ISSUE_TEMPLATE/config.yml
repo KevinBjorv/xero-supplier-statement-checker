@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Installation and OAuth setup
+    url: https://github.com/KevinBjorv/xero-supplier-statement-checker/blob/main/docs/installation.md
+    about: Start here for credentials, supported inputs and operator review.
+  - name: Security vulnerability
+    url: https://github.com/KevinBjorv/xero-supplier-statement-checker/security/policy
+    about: Use the private reporting route; keep exploitable details out of public issues.
+  - name: Get this workflow implemented
+    url: https://cal.com/bjorv/ai-en?oppgave=Xero%20Supplier%20Statement%20Checker
+    about: Discuss installation and customization with Bjorvand AI.

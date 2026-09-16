@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title description">
+<title id="title">Synthetic supplier statement report: 10 rows, 2 matched, 1 amount difference, 1 not found, 6 for review</title>
+<desc id="description">A data preview generated from fixtures/expected/report.json. INV-101 has original totals 250.00 versus 245.00 GBP. INV-107 has only an outstanding amount and is not compared automatically.</desc>
+<rect width="1280" height="760" rx="20" fill="#f6f2e9"/>
+<g font-family="Arial,Helvetica,sans-serif" fill="#183331">
+<text x="48" y="54" font-size="14" font-weight="700" letter-spacing="2">SYNTHETIC REPORT / DATA PREVIEW</text>
+<text x="48" y="116" font-size="38" font-weight="700">Every exception has a reason.</text>
+<text x="48" y="153" font-size="18" fill="#58645d">Example Office Supplies Ltd (synthetic) · GBP · 2026-08-31</text>
+<g transform="translate(48,188)"><rect width="278" height="116" rx="10" fill="#ffffff" stroke="#dddace"/><text x="22" y="57" font-size="42" font-weight="700" fill="#216c51">2</text><text x="22" y="88" font-size="16">Matched</text></g>
+<g transform="translate(350,188)"><rect width="278" height="116" rx="10" fill="#ffffff" stroke="#dddace"/><text x="22" y="57" font-size="42" font-weight="700" fill="#a44620">1</text><text x="22" y="88" font-size="16">Amount difference</text></g>
+<g transform="translate(652,188)"><rect width="278" height="116" rx="10" fill="#ffffff" stroke="#dddace"/><text x="22" y="57" font-size="42" font-weight="700" fill="#945821">1</text><text x="22" y="88" font-size="16">Not found in retrieval</text></g>
+<g transform="translate(954,188)"><rect width="278" height="116" rx="10" fill="#ffffff" stroke="#dddace"/><text x="22" y="57" font-size="42" font-weight="700" fill="#59615a">6</text><text x="22" y="88" font-size="16">Review required</text></g>
+<rect x="48" y="334" width="1184" height="160" rx="10" fill="#ffffff" stroke="#dddace"/>
+<path d="M48 347v134" stroke="#b45b30" stroke-width="6"/>
+<text x="76" y="375" font-size="21" font-weight="700">INV-101 · Amount difference</text>
+<text x="76" y="413" font-size="17">Statement original: 250.00 GBP</text>
+<text x="508" y="413" font-size="17">Xero original: 245.00 GBP</text>
+<text x="925" y="413" font-size="17" font-weight="700">Difference: 5.00</text>
+<text x="76" y="458" font-size="16" fill="#58645d">statement.csv · source row 3 · Compare the source invoice and both recorded totals.</text>
+<rect x="48" y="516" width="1184" height="154" rx="10" fill="#ffffff" stroke="#dddace"/>
+<path d="M48 529v128" stroke="#718176" stroke-width="6"/>
+<text x="76" y="557" font-size="21" font-weight="700">INV-107 · Review required</text>
+<text x="76" y="596" font-size="17">Outstanding: 45.00 GBP</text>
+<text x="508" y="596" font-size="17">Original total: not provided</text>
+<text x="76" y="636" font-size="16" fill="#58645d">Reference candidate retained. No safe original-total comparison.</text>
+<text x="48" y="716" font-size="15" fill="#58645d">10 source rows retained in HTML, CSV and JSON. All example data is fictional.</text>
+</g></svg>

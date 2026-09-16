@@ -1,5 +1,9 @@
 * text=auto eol=lf
 *.pdf binary
 *.png binary
+*.jpg binary
 *.zip binary
 fixtures/expected/report.csv text eol=crlf
+workflows/*.json linguist-generated
+fixtures/expected/* linguist-generated
+docs/assets/report-preview.svg linguist-generated

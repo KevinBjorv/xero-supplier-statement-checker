@@ -1,9 +1,17 @@
 {
   "name": "xero-supplier-statement-checker",
+  "description": "Read-only n8n workflow for checking supplier CSV/PDF statements against Xero bills with deterministic matching and evidence-backed reports.",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "license": "MIT",
+  "homepage": "https://github.com/KevinBjorv/xero-supplier-statement-checker#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KevinBjorv/xero-supplier-statement-checker.git"
+  },
+  "bugs": "https://github.com/KevinBjorv/xero-supplier-statement-checker/issues",
+  "keywords": ["xero", "n8n", "supplier-statements", "accounts-payable", "invoice-matching", "accounting-automation", "typescript"],
   "engines": {
     "node": ">=24"
   },
@@ -13,7 +21,9 @@
     "build": "node scripts/build.mjs",
     "workflow:check": "node scripts/build.mjs --check",
     "demo": "node scripts/demo.mjs",
-    "check": "npm run typecheck && npm test && npm run workflow:check",
+    "check": "npm run typecheck && npm test && npm run workflow:check && npm run docs:check",
+    "docs:assets": "node scripts/repository-assets.mjs",
+    "docs:check": "node scripts/repository-assets.mjs --check",
     "test:openai": "node --env-file=.env.local scripts/test-openai.mjs"
   },
   "dependencies": {
