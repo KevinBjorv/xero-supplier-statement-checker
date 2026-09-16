@@ -1,5 +1,12 @@
 # Product Hunt listing
 
+**Status:** Submitted 16 September 2026. Product Hunt confirmed scheduling for
+17 September 2026 at 00:01 PDT (07:01 UTC / 09:01 CEST). Not yet a live launch.
+
+**Listing:** https://www.producthunt.com/products/xero-supplier-statement-checker?launch=xero-supplier-statement-checker
+
+**Dashboard:** https://www.producthunt.com/products/xero-supplier-statement-checker/xero-supplier-statement-checker/prelaunch
+
 **Name:** Xero Supplier Statement Checker
 
 **Tagline:** Check supplier statements against Xero, with evidence
@@ -11,11 +18,19 @@
 **Pricing:** Free source and workflow; optional paid implementation and provider
 usage costs explained on the website. Do not select a paid product or trial.
 
-**Relevant categories:** Accounting, Workflow Automation, Open Source — select
-the closest available platform labels rather than inventing categories.
+**Selected launch tags:** Accounting, Open Source, Productivity. Workflow was not
+available in the platform's launch-tag search.
 
-**Gallery:** repository cover and synthetic report preview, with captions that
-identify fictional data. No video placeholder; YouTube is deferred.
+**Saved media:** 240×240 product icon and three gallery images: the English
+website's social image, repository cover and synthetic report preview. The
+report image labels the data as synthetic. No video; YouTube remains deferred.
+
+**Verified in the saved preview:** scheduled date, name and tagline, description
+including pending live acceptance, free pricing, three gallery images, maker
+attribution and pinned first comment. The website CTA retains the campaign
+parameters; the separate GitHub link points to the public source. The public
+maker profile also has a project introduction and tracked Bjorvand.ai link.
+No ads, investor submission or additional review/shoutout was purchased or sent.
 
 ## First maker comment
 

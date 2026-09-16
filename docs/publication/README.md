@@ -37,7 +37,7 @@ results only. No visits, bookings or sales are claimed in this record.
 | n8n Community | Content prepared; publication pending | Publish once in Built with n8n; disclose preview and commercial affiliation. |
 | LinkedIn | Content prepared; login required | Verify the posting identity before publishing the project post. |
 | DEV | Published 16 September 2026 | [Live tutorial](https://dev.to/kevinbjorv/checking-xero-supplier-statements-with-n8n-and-deterministic-typescript-29h); author Kevin Bjorvand, four relevant tags, illustration, AI disclosure and tracked website CTA verified. |
-| Product Hunt | Content prepared; account onboarding pending | Free/open-source preview, gallery, relevant categories, website link; no paid promotion. |
+| Product Hunt | Submitted; scheduled for 17 September 2026 | [Listing preview](https://www.producthunt.com/products/xero-supplier-statement-checker?launch=xero-supplier-statement-checker). Platform confirmed launch at 00:01 PDT / 09:01 CEST. Icon, three gallery images, maker comment, free pricing and tracked website link verified; launch is not yet live. |
 | Xero App Store | Not eligible for submission yet | Certification, qualifying plan, approved onboarding and live integration evidence pending. |
 
 ## Content and assets
