@@ -77,14 +77,12 @@ OpenAI setup, execution retention and operator confirmation.
 ## How it works
 
 ```mermaid
-flowchart LR
-    A[Upload CSV or text PDF] --> B[Select supplier from Xero contacts]
-    B --> C[Map CSV or extract PDF fields]
-    C --> D[Operator corrects and confirms every row]
-    D --> E[Retrieve supplier bills completely]
-    E --> F[Deterministic reference and total checks]
-    F --> G[Review summary and download ZIP]
-    E -->|Retrieval incomplete| H[Failed diagnostic report]
+flowchart TB
+    A[1. Upload statement and select supplier]
+    B[2. Extract, review and confirm rows]
+    C[3. Retrieve bills and run deterministic checks]
+    D[4. Review summary and download ZIP]
+    A --> B --> C --> D
 ```
 
 - **Operator-controlled:** one organization, one selected supplier and one currency.
