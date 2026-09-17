@@ -43,15 +43,15 @@ results only. No visits, bookings or sales are claimed in this record.
 | DEV | Published 16 September 2026 | [Live tutorial](https://dev.to/kevinbjorv/checking-xero-supplier-statements-with-n8n-and-deterministic-typescript-29h); author Kevin Bjorvand, four relevant tags, illustration, AI disclosure and tracked website CTA verified. |
 | Product Hunt | Submitted; scheduled for 17 September 2026 | [Listing preview](https://www.producthunt.com/products/xero-supplier-statement-checker?launch=xero-supplier-statement-checker). Platform confirmed launch at 00:01 PDT / 09:01 CEST. Icon, three gallery images, maker comment, free pricing and tracked website link verified; launch is not yet live. |
 | Reddit r/n8n | Published 16 September 2026 | [Workflow post](https://www.reddit.com/r/n8n/comments/1wi42z4/supplier_statement_checker_n8n_forms/) verified on its resulting page. Required GitHub flair, code link, synthetic output, affiliation and AI-assistance disclosures included. No commercial CTA. |
-| SaaSHub | Copy prepared; login opened | Product submission requires account access; not submitted. |
-| SourceForge | Copy prepared; login opened | Create an open-source checker project; do not redistribute n8n as MIT. Not submitted. |
-| AlternativeTo | Copy prepared; login opened | Email verification and administrator review required; use a clean website URL. Not submitted. |
-| Hashnode | Republish plan prepared; login opened | Existing DEV tutorial is the canonical original; use a Hashnode-attributed website CTA. Not published. |
-| AccountingWEB | Editorial angle prepared; login opened | Commercial publication requires appropriate partner/editorial access; no paid placement or partnership outreach authorized. Not submitted. |
-| Indie Hackers | Product copy prepared; login opened | Verify identity and create product profile/update; no invented traction. Not submitted. |
-| Peerlist | Project copy prepared; login opened | Profile project first; verified individual profile and Monday availability govern Launchpad. Not submitted. |
-| OpenAlternative | Copy prepared; login opened | Conditional directory fit; verify any required comparable proprietary product. Not submitted. |
-| Hacker News | Show HN copy prepared; login opened | Primary link is the runnable public repository and credential-free demo. Not submitted. |
+| SaaSHub | Registration prepared; operator action required | New password and CAPTCHA must be completed in the open registration form. Product not submitted. |
+| SourceForge | Registration prepared; operator action required | New password and required registration details remain. Create a checker project after registration; do not redistribute n8n as MIT. Not submitted. |
+| AlternativeTo | Submitted 17 September 2026; awaiting review | Free review queue confirmed. Icon, synthetic report screenshot, MIT source, self-hosted requirements and clean website URL saved. Owner-only until approved; no public listing claimed. |
+| Hashnode | Published 17 September 2026 | [Live tutorial](https://bjorvand-ai.hashnode.dev/checking-xero-supplier-statements-with-n8n-and-deterministic-typescript); cover, three relevant tags, SEO title/description, DEV canonical, preview disclosure and tracked website CTA verified. |
+| AccountingWEB | Registration partly prepared; access pending | Operator must complete password and required business details. Commercial publication also requires appropriate partner/editorial access; no paid placement or partnership outreach authorized. Not submitted. |
+| Indie Hackers | Product page and introduction published 17 September 2026 | [Product page](https://www.indiehackers.com/product/xero-supplier-statement-checker) has the icon, tagline, preview description, relevant categories and tracked website link. Required profile fields saved using the owner's solo, self-funded side-project details; original technical update verified. Revenue left unset. |
+| Peerlist | Project published 17 September 2026; Launchpad pending | [Public project](https://peerlist.io/kevinbjorvand/project/xero-supplier-statement-checker) saved at 100% project completion with icon, two gallery images, Finance category, n8n tag, source and tracked website link. Launchpad requires profile verification. |
+| OpenAlternative | Ineligible under current submission requirements | Submission form requires at least 10 GitHub stars; repository had 1 on 17 September 2026. It also requires full applications rather than scripts/libraries. Not submitted; workflow eligibility would need confirmation. |
+| Hacker News | Show HN copy prepared; operator login required | New account credentials or existing sign-in must be completed by the operator. Primary link remains the runnable repository and credential-free demo. Not submitted. |
 | Xero App Store | Not eligible for submission yet | Certification, qualifying plan, approved onboarding and live integration evidence pending. |
 
 ## Content and assets

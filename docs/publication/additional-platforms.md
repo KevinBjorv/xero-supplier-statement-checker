@@ -4,6 +4,11 @@ Prepared 16 September 2026 for the owner's requested second distribution batch.
 Prepared copy is not evidence that a platform accepted or published a listing.
 Use the per-platform status in [the distribution record](README.md).
 
+Execution update: 17 September 2026. Hashnode and Peerlist are published;
+AlternativeTo is submitted to review; Indie Hackers has a live product page
+and technical introduction. Remaining registrations need
+operator-entered credentials or business details. No paid promotion was bought.
+
 ## Shared listing facts
 
 Name: Xero Supplier Statement Checker
@@ -60,6 +65,9 @@ balances, convert currencies or process scanned PDFs.
 
 ## SaaSHub
 
+Status: registration identity prepared; operator password entry and CAPTCHA
+remain. The product has not been submitted.
+
 Login: https://www.saashub.com/login
 
 Submission route observed in the UI: https://www.saashub.com/services/submit
@@ -70,6 +78,9 @@ and `utm_campaign=xero_statement_checker` where accepted. Verify product
 ownership through the actual flow. Paid promotion is outside the current scope.
 
 ## SourceForge
+
+Status: registration identity prepared; operator password entry and completion
+of required registration details remain. No project has been created.
 
 Login: https://sourceforge.net/auth/
 
@@ -83,6 +94,13 @@ release is still a draft. The website may use `utm_source=sourceforge` and
 `utm_medium=directory` with the shared campaign.
 
 ## AlternativeTo
+
+Submitted 17 September 2026 to the free review queue. The saved submission has
+the icon, one synthetic report screenshot, Bjorvand AI author attribution,
+Accounting tag, self-hosted platform, free/open-source MIT classification,
+GitHub source and clean product website URL. The platform explicitly says the
+listing is owner-only until reviewed. Do not distribute its pending URL as a
+public listing. No competitor relationship or paid priority review was added.
 
 Login: https://alternativeto.net/login
 
@@ -99,6 +117,16 @@ and is not authorized for purchase.
 
 ## Hashnode
 
+Published 17 September 2026 in **Bjorvand AI — Practical Automation**:
+
+https://bjorvand-ai.hashnode.dev/checking-xero-supplier-statements-with-n8n-and-deterministic-typescript
+
+The public article was checked for rendered tutorial content, the repository
+cover, `typescript`, `n8n` and `open-source-software` tags, SEO title and
+description, canonical link to DEV, preview and AI-assistance disclosures,
+and a website CTA using the Hashnode campaign parameters below. This is a
+republication, not a second canonical original.
+
 Login: https://hashnode.com/login
 
 Republish the technical [DEV article](dev-article.md), retaining the AI-assistance
@@ -113,6 +141,10 @@ to a different landing page. If the platform requires creating a publication,
 use the owner's Bjorvand AI identity and existing publication if present.
 
 ## AccountingWEB
+
+Status: registration partly prepared. The operator must supply the password and
+remaining required personal/business details. Registration does not establish
+commercial publishing or partner access; no article or outreach was sent.
 
 Login: https://www.accountingweb.co.uk/user/login?destination=home
 
@@ -134,13 +166,36 @@ studies must not be invented to satisfy editorial requirements.
 
 ## Indie Hackers
 
+Account and product page created 17 September 2026:
+
+https://www.indiehackers.com/product/xero-supplier-statement-checker
+
+The live page contains the project icon, the tagline "Check supplier statements
+against Xero, with evidence", and a website link attributed to `indiehackers`
+with medium `directory`. The platform says directory inclusion requires the
+rest of the profile. The owner confirmed a solo, self-funded side project;
+those required fields and the technical description/categories were saved.
+Revenue remains unset. The icon and completed profile were checked on the
+resulting page.
+
+Published technical introduction:
+
+https://www.indiehackers.com/product/xero-supplier-statement-checker/building-a-supplier-statement-checker-that-refuses-unsafe-comparisons--P1hl8ZyFJclfGPIyEw4
+
+The rendered post retains synthetic result counts, pending live acceptance,
+AI-assistance disclosure, the source link and optional implementation offer.
+The product profile supplies the verified Bjorvand.ai link. The update form's
+attached website link did not render on the post; a follow-up link comment was
+blocked by the new-account restriction and was not posted.
+
 Login: https://www.indiehackers.com/sign-in
 
 Product database: https://www.indiehackers.com/products
 
 Product-update title: **Building a supplier statement checker that refuses unsafe comparisons**
 
-Draft update:
+Source copy for the published update (the live version also includes the
+self-funded side-project detail, AI disclosure, source link and service costs):
 
 I am sharing an open-source n8n workflow for checking supplier statements
 against Xero bills. A supplier's Amount column may mean the original invoice
@@ -165,10 +220,21 @@ traction to fill a product profile.
 
 ## Peerlist
 
+Project published 17 September 2026:
+
+https://peerlist.io/kevinbjorvand/project/xero-supplier-statement-checker
+
+The saved project reached 100% project completion. Verified the description,
+Finance category, n8n tag, open-source source link, icon, two gallery images
+(cover and synthetic report) and Visit button destination with campaign
+parameters. The description retains preview limitations and optional service
+costs. The Launch action requires workplace or identity verification; the
+project is public, but no Launchpad launch has been submitted or scheduled.
+
 Login: https://peerlist.io/login
 
 Create a project on the owner's individual profile with the shared description,
-source link, website, icon and three existing gallery images. Use
+source link, website, icon and the existing gallery images. Use
 `utm_source=peerlist`, `utm_medium=directory` and the shared campaign.
 
 The published help requires a verified individual profile and a complete project
@@ -177,6 +243,13 @@ are separate milestones. Use the earliest available ordinary launch; do not
 claim a scheduled launch until the UI confirms it.
 
 ## OpenAlternative
+
+Not submitted. On 17 September 2026, the signed-in submission form required
+an actively maintained public repository with at least 10 GitHub stars and a
+full application, excluding CLIs, scripts, libraries and AI wrappers. The
+repository had 1 star when checked with GitHub. The star threshold is unmet;
+whether an n8n-dependent workflow meets the full-application requirement also
+needs clarification before any future submission.
 
 Login/submission: https://openalternative.co/auth/login?next=/submit
 
@@ -206,6 +279,9 @@ rules. Do not repost it to obtain additional exposure. Posting does not imply
 moderator endorsement or any measured acquisition result.
 
 ## Hacker News: Show HN
+
+Status: login/create-account form remains open for operator credential entry.
+The prepared Show HN has not been submitted.
 
 Login/submission: https://news.ycombinator.com/submit
 
